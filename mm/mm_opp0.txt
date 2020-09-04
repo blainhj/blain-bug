@@ -1,0 +1,1351 @@
+READ:0;0.0;CHK:0;
+aml log : uart_clk_enhance() need fine tune
+
+aml log : bl2_plat_arch_setup() need fine tune
+
+L0:00000000
+L1:00000700
+L2:00000000
+L3:00000000
+
+TE: 52451
+
+BL2 Aarch32 Built : 13:08:02, Aug 27 2020. t5 g912ca41 - evoke.zhang@droid07-sz
+
+
+aml log : T5 saradc_ch1_get() need fine tune
+
+aml log : T5 pll_init() need fine tune
+T5 PXP DDR init...
+T5 DDR PLL init done!
+T5 DDR reset1!
+T5 DDR reset2!
+T5 PXP DDR init done!
+
+aml log : bl2_platform_setup() need fine tune
+
+aml log : T5 secure_mem_config_init() need fine tune
+Load FIP HDR from Rsv, src: 0x00014000, des: 0x00200000, size: 0x00004000, part: 0
+aml log : T5 Z1 DDR preload...
+Load BL3X from Rsv, src: 0x00064000, des: 0x00250000, size: 0x000c4000, part: 0
+aml log : T5 Z1 DDR preload...
+
+aml log : BL3X preload
+
+aml log : T5 secure_mem_config_set() need fine tune
+
+aml log : BL3X preload
+
+boot BL31
+NOTICE:  BL31: v1.3(release):56e5b9c9b-dirty
+NOTICE:  BL31: Built : 19:59:13, Aug 19 2020
+ERROR:   Error initializing runtime service opteed_fast
+
+
+U-Boot 2015.01-g69160ae3e7-dirty (Aug 27 2020 - 13:08:09)
+
+DRAM:  2 GiB
+Relocation Offset is: 76f2b000
+mmu cfg end: 0x80000000
+mmu cfg end: 0x80000000
+MMC:   aml_priv->desc_buf = 0x0000000073f1b850
+aml_priv->desc_buf = 0x0000000073f1db90
+SDIO Port B: 0, SDIO Port C: 1
+Using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+preboot
+Hit Enter or space or Ctrl+C key to stop autoboot -- :  0 
+bootcmd
+t5_skt_v1#
+t5_skt_v1#vpu probe
+vpu: error: vpu: check dts: FDT_ERR_BADMAGIC, load default parameters
+vpu_chip_detect: 0x0
+vpu: driver version: v20200817
+vpu: detect chip type: 13
+vpu: clk_level default: 7(666667000Hz), max: 7(666667000Hz)
+vpu: clk_level = 7
+lzq_0819 smc_fid = 82000093, x1 = 5,x2=1lzq_0819: aml_power_control, domian = 5, state= 1
+vpu: vpu_power_on_new
+vpu: set_vpu_clk
+vpu: set clk: 666667000Hz, readback: 666666667Hz(0x100)
+vpu: set_vpu_clk finish
+vpu: vpu_module_init_config
+t5_skt_v1#setenv bootargs console=ttyS0 earlycon=aml_uart,0xffd23000 loglevel=9 nosmp
+t5_skt_v1#setenv dtb_mem_addr 0x6000000
+t5_skt_v1#bootm 0x8000000 0x7000000 0x6000000
+Error: add reboot_mode in bootargs failed!
+lzq_0819 smc_fid = 820000ff, x1 = 64,x2=134217728CONFIG_AVB2: null 
+avb2: 0
+ee_gate_off ...
+avb2: 0
+## Booting kernel from Legacy Image at 08000000 ...
+   Image Name:   linux-next
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    23281664 Bytes = 22.2 MiB
+   Load Address: 00108000
+   Entry Point:  00108000
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 07000000 ...
+   Image Name:   
+   Image Type:   ARM Linux RAMDisk Image (uncompressed)
+   Data Size:    9010974 Bytes = 8.6 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+[store]Is good fdt check header, no need decrypt!
+active_slot is normal
+get partition info failed !!
+amlmmc - AMLMMC sub system
+
+Usage:
+amlmmc read  <partition_name> ram_addr addr_byte# cnt_byte
+amlmmc write <partition_name> ram_addr addr_byte# cnt_byte
+amlmmc erase <partition_name> addr_byte# cnt_byte
+amlmmc erase <partition_name>/<device num>
+amlmmc rescan <device_num>
+amlmmc part <device_num> - show partition infomation of mmc
+amlmmc list - lists available devices
+amlmmc env -  display env partition offset
+amlmmc switch <device_num> <part name> - part name : boot0, boot1, user
+amlmmc status <device_num> - read sd/emmc device status
+amlmmc ext_csd <device_num> <byte> - read sd/emmc device EXT_CSD [byte]
+amlmmc ext_csd <device_num> <byte> <value> - write sd/emmc device EXT_CSD [byte] value
+amlmmc response <device_num> - read sd/emmc last command response
+amlmmc controller <device_num> - read sd/emmc controller register
+amlmmc write_protect <partition_name> <write_protect_type>
+        - set write protect on partition through power_on or temporary
+amlmmc write_protect <addr_base16> <cnt_base10> <write_protect_type>
+        - set write protect on specified address through power_on or temporary
+amlmmc send_wp_status <partition_name> send protect status of partition
+amlmmc send_wp_status <addr_base16> <cnt_base10> send protect status on specified address
+amlmmc send_wp_type <partition_name> send protect type of partition
+amlmmc send_wp_type <addr_base16> <cnt_base10> send protect type on specified address
+amlmmc clear_wp <partition_name> clear write protect of partition
+amlmmc clear_wp <addr_base16> <cnt_base10> clear write protect on specified addresst
+amlmmc ds <dev_num> <val> set driver strength
+amlmmc key - disprotect key partition
+
+amlmmc cmd <NULL> failed
+store - STORE sub-system
+
+Usage:
+store init flag
+store read name addr off|partition size
+    read 'size' bytes starting at offset 'off'
+    to/from memory address 'addr', skipping bad blocks.
+store write name addr off|partition size
+    write 'size' bytes starting at offset 'off'
+    to/from memory address 'addr', skipping bad blocks.
+store rom_write add off size.
+        write uboot to the boot device
+store erase boot/data: 
+        erase the area which is uboot or data 
+store erase partition <partition_name>: 
+        erase the area which partition in u-boot 
+store erase dtb 
+store erase key 
+store disprotect key 
+store rom_protect on/off 
+store scrub off|partition size
+        scrub the area from offset and size 
+store dtb iread/read/write addr <size>
+        read/write dtb, size is optional 
+store key read/write addr <size>
+        read/write key, size is optional 
+store ddr_parameter read/write addr <size>
+        read/write ddr parameter, size is optional 
+store mbr addr
+   update mbr/partition table by dtb
+store bootlog
+   show boot logs
+
+No dtbo patitions found
+load dtb from 0x6000000 ......
+## Flattened Device Tree blob at 06000000
+   Booting using the fdt blob at 0x6000000
+No valid dtbo image found
+   Loading Kernel Image(COMP_NONE) ... OK
+   kernel loaded at 0x00108000, end = 0x0173c000
+   Loading Ramdisk to 09768000, end 09ffff1e ... OK
+   Loading Device Tree to 000000000974f000, end 0000000009767791 ... OK
+fdt_fixup_memory_banks, reg:0000000000000000
+
+Starting kernel ...
+
+uboot time: 1024741 us
+[    0.000000@0] Booting Linux on physical CPU 0x0
+[    0.000000@0] Linux version 4.9.113-05357-g5b46a282c2e1-dirty (shihong.zheng@droid09-sz) (gcc version 6.3.1 20170109 (Linaro GCC 6.3-2017.02) ) #22 SMP PREEMPT Thu Sep 3 11:57:09 CST 2020
+[    0.000000@0] CPU: ARMv7 Processor [411fd040] revision 0 (ARMv7), cr=10c5383d
+[    0.000000@0] CPU: div instructions available: patching division code
+[    0.000000@0] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000@0] Machine model: Amlogic T5 xx xx
+[    0.000000@0] earlycon: aml_uart0 at MMIO 0xffd23000 (options '')
+[    0.000000@0] bootconsole [aml_uart0] enabled
+[    0.000000@0]        07400000 - 07500000,     1024 KB, ramoops@0x07400000
+[    0.000000@0]        05000000 - 05400000,     4096 KB, linux,secmon
+[    0.000000@0]        3f800000 - 40000000,     8192 KB, linux,meson-fb
+[    0.000000@0]        30000000 - 31000000,    16384 KB, linux,dsp_fw
+[    0.000000@0]        31000000 - 3e000000,   212992 KB, linux,codec_mm_cma
+[    0.000000@0]        80000000 - 80000000,        0 KB, linux,codec_mm_reserved
+[    0.000000@0]        7e000000 - 80000000,    32768 KB, linux,ion-dev
+[    0.000000@0]        7cc00000 - 7e000000,    20480 KB, linux,vdin1_cma
+[    0.000000@0]        7c400000 - 7cc00000,     8192 KB, linux,demod_cma
+[    0.000000@0]        79c00000 - 7c400000,    40960 KB, linux,di_cma
+[    0.000000@0] cma: Reserved 8 MiB at 0x79400000
+[    0.000000@0] Memory policy: Data cache writealloc
+[    0.000000@0] On node 0 totalpages: 524288
+[    0.000000@0] free_area_init_node: node 0, pgdat c172cd80, node_mem_map eeff7000
+[    0.000000@0]   Normal zone: 1536 pages used for memmap
+[    0.000000@0]   Normal zone: 0 pages reserved
+[    0.000000@0]   Normal zone: 196608 pages, LIFO batch:31
+[    0.000000@0]   HighMem zone: 327680 pages, LIFO batch:31
+[    0.000000@0] psci: probing for conduit method from DT.
+[    0.000000@0] psci: PSCIv1.0 detected in firmware.
+[    0.000000@0] psci: Using standard PSCI v0.2 function IDs
+[    0.000000@0] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000@0] psci: SMC Calling Convention v1.1
+[    0.000000@0] percpu: Embedded 15 pages/cpu @eef7d000 s32076 r8192 d21172 u61440
+[    0.000000@0] pcpu-alloc: s32076 r8192 d21172 u61440 alloc=15*4096
+[    0.000000@0] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 522752
+[    0.000000@0] Kernel command line: console=ttyS0 earlycon=aml_uart,0xffd23000 loglevel=9 nosmp
+[    0.000000@0] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000@0] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000@0] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000@0] Memory: 1694076K/2097152K available (12749K kernel code, 1257K rwdata, 4788K rodata, 1024K init, 1459K bss, 50820K reserved, 352256K cma-reserved, 962560K highmem)
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000@0]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000@0]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000@0]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000@0]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000@0]     modules : 0xbc000000 - 0xbfe00000   (  62 MB)
+[    0.000000@0]       .text : 0xc0108000 - 0xc0e73644   (13742 kB)
+[    0.000000@0]       .init : 0xc1500000 - 0xc1600000   (1024 kB)
+[    0.000000@0]       .data : 0xc1600000 - 0xc173a5d8   (1258 kB)
+[    0.000000@0]        .bss : 0xc173c000 - 0xc18a8e0c   (1460 kB)
+[    0.000000@0]  0, addr:c0b5c0f4 +  154, aml_cma_alloc_post_hook
+[    0.000000@0]  1, addr:c0628608 +   4c, dma_alloc_from_contiguous
+[    0.000000@0]  2, addr:c0391688 +  4f8, cma_alloc
+[    0.000000@0]  3, addr:c038b9b0 +  304, __kmalloc_track_caller
+[    0.000000@0]  4, addr:c0388be8 +  2a8, kmem_cache_alloc
+[    0.000000@0]  5, addr:c0388884 +  2c0, kmem_cache_alloc_trace
+[    0.000000@0]  6, addr:c0388580 +  304, __kmalloc
+[    0.000000@0]  7, addr:c0388510 +   70, __slab_alloc.constprop.10
+[    0.000000@0]  8, addr:c0388178 +  398, ___slab_alloc.constprop.11
+[    0.000000@0]  9, addr:c03860e4 +  3d8, new_slab
+[    0.000000@0] 10, addr:c037a494 +   44, vmalloc
+[    0.000000@0] 11, addr:c037a450 +   44, vzalloc
+[    0.000000@0] 12, addr:c0379eb4 +  258, __vmalloc_node_range
+[    0.000000@0] 13, addr:c0360d44 +  114, kmalloc_order_trace
+[    0.000000@0] 14, addr:c0360bf0 +  154, kmalloc_order
+[    0.000000@0] 15, addr:c034308c +  164, __alloc_page_frag
+[    0.000000@0] 16, addr:c0343048 +   44, alloc_pages_exact
+[    0.000000@0] 17, addr:c0343024 +   24, get_zeroed_page
+[    0.000000@0] 18, addr:c0342fe8 +   3c, __get_free_pages
+[    0.000000@0] 19, addr:c0342054 +  f94, __alloc_pages_nodemask
+[    0.000000@0] 20, addr:c02193b4 +   4c, cma_allocator_alloc
+[    0.000000@0] 21, addr:c02192cc +   e8, __alloc_from_contiguous
+[    0.000000@0] 22, addr:c0218e54 +   58, arm_dma_alloc
+[    0.000000@0] 23, addr:c0218aa8 +  360, __dma_alloc
+[    0.000000@0] zone:Normal, spaned pages:196608, total:196608
+[    0.000000@0] zone:HighMem, spaned pages:327680, total:524288
+[    0.000000@0] page_trace_pre_work, trace buffer:ee800000, size:200000, used:eea00000, end:eea00000
+[    0.000000@0] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0]        Build-time adjustment of leaf fanout to 32.
+[    0.000000@0]        RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000@0] RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=4
+[    0.000000@0] NR_IRQS:16 nr_irqs:16 16
+[    0.000000@0] irq_meson_gpio: 69 to 8 gpio interrupt mux initialized
+[    0.000000@0] [__arm_ioremap_pfn_caller:L276]: offset=0, size=1020, mtype = 0
+[    0.000000@0] [__arm_ioremap_pfn_caller:L287]: offset=0, size=4096, mtype = 0
+[    0.000000@0] [__arm_ioremap_pfn_caller:L316]: offset=0, size=4096, mtype = 0
+[    0.000000@0] [ioremap_pte_range:L66]: addr=-260022272, end=-260018176, prot= 1619
+[    0.000000@0] [ioremap_pte_range:L70]: addr=-260022272, end=-260018176, prot = 1619
+[    0.000000@0] [t5_clkc_init]: init ...
+[    0.000000@0] [t5_clkc_init]: phy_start=0xff63c000, phy_end=0xff63c3fb, vir=0xf0806000
+[    0.000000@0] [t5_clkc_init]: show pte ...
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806000] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806004] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806008] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080600c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806010] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806014] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806018] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080601c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806020] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806024] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806028] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080602c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806030] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806034] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806038] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080603c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806040] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806044] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806048] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080604c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806050] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806054] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806058] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080605c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806060] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806064] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806068] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080606c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806070] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806074] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806078] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080607c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806080] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806084] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806088] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080608c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806090] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806094] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806098] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080609c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060a0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060a4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060a8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060ac] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060b0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060b4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060b8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060bc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060c0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060c4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060c8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060cc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060d0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060d4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060d8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060dc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060e0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060e4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060e8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060ec] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060f0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060f4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060f8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08060fc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806100] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806104] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806108] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080610c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806110] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806114] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806118] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080611c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806120] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806124] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806128] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080612c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806130] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806134] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806138] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080613c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806140] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806144] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806148] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080614c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806150] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806154] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806158] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080615c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806160] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806164] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806168] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080616c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806170] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806174] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806178] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080617c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806180] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806184] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806188] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080618c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806190] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806194] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806198] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080619c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061a0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061a4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061a8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061ac] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061b0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061b4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061b8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061bc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061c0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061c4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061c8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061cc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061d0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061d4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061d8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061dc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061e0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061e4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061e8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061ec] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061f0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061f4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061f8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08061fc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806200] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806204] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806208] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080620c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806210] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806214] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806218] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080621c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806220] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806224] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806228] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080622c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806230] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806234] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806238] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080623c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806240] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806244] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806248] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080624c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806250] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806254] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806258] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080625c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806260] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806264] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806268] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080626c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806270] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806274] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806278] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080627c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806280] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806284] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806288] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080628c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806290] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806294] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806298] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080629c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062a0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062a4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062a8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062ac] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062b0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062b4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062b8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062bc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062c0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062c4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062c8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062cc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062d0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062d4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062d8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062dc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062e0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062e4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062e8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062ec] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062f0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062f4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062f8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08062fc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806300] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806304] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806308] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080630c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806310] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806314] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806318] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080631c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806320] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806324] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806328] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080632c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806330] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806334] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806338] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080633c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806340] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806344] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806348] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080634c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806350] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806354] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806358] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080635c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806360] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806364] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806368] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080636c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806370] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806374] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806378] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080637c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806380] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806384] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806388] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080638c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806390] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806394] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f0806398] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f080639c] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063a0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063a4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063a8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063ac] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063b0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063b4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063b8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063bc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063c0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063c4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063c8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063cc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063d0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063d4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063d8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063dc] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063e0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063e4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063e8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063ec] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063f0] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063f4] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] pgd = c0104000
+[    0.000000@0] [f08063f8] *pgd=2ea14811, *pte=ff63c653, *ppte=ff63c453
+[    0.000000@0] GIC: PPI11 is secure or misconfigured
+[    0.000000@0] arm_arch_timer: WARNING: Invalid trigger for IRQ19, assuming level low
+[    0.000000@0] arm_arch_timer: WARNING: Please fix your firmware
+[    0.000000@0] arm_arch_timer: Architected cp15 timer(s) running at 24.00MHz (virt).
+[    0.000000@0] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000009@0] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000235@0] Switching to timer-based delay loop, resolution 41ns
+[    0.000491@0] meson_bc_timer: mclk->mux_reg =f080a190,mclk->reg =f080c194
+[    0.002904@0] Console: colour dummy device 80x30
+[    0.002978@0] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.003199@0] pid_max: default: 32768 minimum: 301
+[    0.003440@0] thread_stack_cache_init, vmap:eea22100, bitmap:eea24400, cache page:79000
+[    0.003574@0] thread_stack_cache_init, allocation vm area:eea21b40, addr:bc000000, size:3001000
+[    0.003937@0] Security Framework initialized
+[    0.003975@0] SELinux:  Initializing.
+[    0.004125@0] SELinux:  Starting in permissive mode
+[    0.004265@0] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.004402@0] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.006541@0] CPU: Testing write buffer coherency: ok
+[    0.007497@0] sched-energy: CPU device node has no sched-energy-costs
+[    0.007551@0] CPU0: update cpu_capacity 1024
+[    0.007670@0] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.007876@0] Setting up static identity map for 0x200000 - 0x200058
+[    0.080777@0] secmon: can't fine clear_range
+[    0.095919@0] Brought up 1 CPUs
+[    0.095959@0] SMP: Total of 1 processors activated (48.00 BogoMIPS).
+[    0.096054@0] CPU: All CPU(s) started in SVC mode.
+[    0.097696@0] addr:bc021cce is in kernel, size fix 4096->10, data:mode=0755
+[    0.098125@0] devtmpfs: initialized
+[    0.195599@0] VFP support v0.3: implementor 41 architecture 3 part 40 variant 4 rev 3
+[    0.196943@0] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.197130@0] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.197637@0] pinctrl core: initialized pinctrl subsystem
+[    0.201281@0] NET: Registered protocol family 16
+[    0.203690@0] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.203755@0] schedtune: init normalization constants...
+[    0.203906@0] schedtune: no energy model data
+[    0.204030@0] schedtune: disabled!
+[    0.225446@0] cpuidle: using governor menu
+[    0.226076@0] register canvas platform driver
+[    0.226397@0] register rdma platform driver
+[    0.229144@0] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.230964@0] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.233762@0] clkmsr: clkmsr: driver init
+[    0.233802@0] codec_mm_module_init
+[    0.234127@0] media_configs_system_init
+[    0.236040@0] aml_watch_point_probe, in, wp:4
+[    0.240530@0] pstore: using zlib compression
+[    0.249119@0] console [pstore-1] enabled
+[    0.250801@0] pstore: Registered ramoops as persistent store backend
+[    0.250859@0] ramoops: attached 0x100000@0x7400000, ecc: 0/0
+[    0.251015@0] ramoops: ramoops_io_en:0 1 old:0x0 ftrace_size:0x80000
+[    0.251201@0] ramoops_io_dump=0, buffer=f08b7000 ftrace_old_log=  (null), size=0, reboot_mode=
+[    0.251794@0] irq: type mismatch, failed to map hwirq-27 for /interrupt-controller@2c001000!
+[    0.258900@0] [__arm_ioremap_pfn_caller:L276]: offset=0, size=8192, mtype = 0
+[    0.258979@0] [__arm_ioremap_pfn_caller:L287]: offset=0, size=8192, mtype = 0
+[    0.259191@0] [__arm_ioremap_pfn_caller:L316]: offset=0, size=8192, mtype = 0
+[    0.259388@0] [ioremap_pte_range:L66]: addr=-258629632, end=-258621440, prot= 1619
+[    0.259604@0] [ioremap_pte_range:L70]: addr=-258629632, end=-258621440, prot = 1619
+[    0.259822@0] aml_iomap: amlogic iomap probe done
+[    0.262447@0] vpu: driver version: v20200818(13-t5)
+[    0.262551@0] vpu: load vpu_clk: 666666667Hz(7)
+[    0.263646@0] vpu: clktree_init
+[    0.264301@0] vpu: set vpu clk: 666666667Hz(7), readback: 499999992Hz(0x100)
+[    0.264915@0] vpu: vpu_probe OK
+[    0.281665@0] clkmsr: msr_clk_reg0=f0971004,msr_clk_reg2=f097300c
+[    0.281736@0] clkmsr ffd18004.clk-measure: failed to get msr ring reg0
+[    0.291817@0] canvas_probe reg=ff638000,size=2000
+[    0.291895@0] canvas maped reg_base =f0978000
+[    0.313973@0] [__arm_ioremap_pfn_caller:L276]: offset=0, size=8192, mtype = 0
+[    0.314052@0] [__arm_ioremap_pfn_caller:L287]: offset=0, size=8192, mtype = 0
+[    0.314263@0] [__arm_ioremap_pfn_caller:L316]: offset=0, size=8192, mtype = 0
+[    0.314601@0] [ioremap_pte_range:L66]: addr=-258490368, end=-258482176, prot= 1619
+[    0.314688@0] [ioremap_pte_range:L70]: addr=-258490368, end=-258482176, prot = 1619
+[    0.315947@0] [__arm_ioremap_pfn_caller:L276]: offset=0, size=768, mtype = 0
+[    0.316019@0] [__arm_ioremap_pfn_caller:L287]: offset=0, size=4096, mtype = 0
+[    0.316233@0] [__arm_ioremap_pfn_caller:L316]: offset=0, size=4096, mtype = 0
+[    0.316430@0] [ioremap_pte_range:L66]: addr=-257388544, end=-257384448, prot= 1619
+[    0.316646@0] [ioremap_pte_range:L70]: addr=-257388544, end=-257384448, prot = 1619
+[    0.316878@0] vclk: aml_vclk_probe OK
+lzq_0819 smc_fid = 82000095, x1 = 0,x2=0lzq_0819 smc_fid = 82000095, x1 = 1,x2=0lzq_0819 smc_fid = 82000095, x1 = 2,x2=0lzq_0819 smc_fid = 82000095, x1 = 3,x2=0lzq_0819 smc_fid = 82000095, x1 = 4,x2=0lzq_0819 smc_fid = 82000095, x1 = 5,x2=0lzq_0819 smc_fid = 82000095, x1 = 6,x2=0lzq_0819 smc_fid = 82000095, x1 = 7,x2=0lzq_0819 smc_fid = 82000095, x1 = 8,x2=0lzq_0819 smc_fid = 82000095, x1 = 9,x2=0lzq_0819 smc_fid = 82000095, x1 = 10,x2=0[    2.297663@0] SCSI subsystem initialized
+[    2.298519@0] usbcore: registered new interface driver usbfs
+[    2.298753@0] usbcore: registered new interface driver hub
+[    2.301004@0] usbcore: registered new device driver usb
+[    2.301478@0] Linux video capture interface: v2.00
+[    2.301714@0] pps_core: LinuxPPS API ver. 1 registered
+[    2.301762@0] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    2.302043@0] PTP clock support registered
+lzq_0819 smc_fid = 82000020, x1 = 0,x2=0lzq_0819 smc_fid = 82000021, x1 = 0,x2=0[    2.310731@0] secmon: reserve_mem_size:0x300000
+[    2.311041@0] secmon secmon: assigned reserved memory node linux,secmon
+[    2.312293@0] secmon: get page:ef097000, 5000
+[    2.312345@0] secmon: share in base: 0xc50fe000, share out base: 0xc50ff000
+[    2.312746@0] secmon: phy_in_base: 0x50fe000, phy_out_base: 0x50ff000
+[    2.313224@0] fb: osd_init_module
+[    2.316048@0] vout: tvout monitor interval:500(ms), timeout cnt:20
+[    2.316103@0] vout: fr_policy:2
+[    2.320494@0] vout: init mode null set ok
+[    2.320541@0] vout: aml_tvout_mode_monitor
+[    2.320603@0] vout: refresh_tvout_mode: mode chang to invalid
+[    2.321012@0] vout: vmode set to invalid
+[    2.321531@0] vout: new mode invalid set ok
+[    2.322040@0] vout: aml_vout_probe OK
+[    2.328101@0] Advanced Linux Sound Architecture Driver Initialized.
+[    2.331287@0] Bluetooth: Core ver 2.22
+[    2.331777@0] NET: Registered protocol family 31
+[    2.331824@0] Bluetooth: HCI device and connection manager initialized
+[    2.331982@0] Bluetooth: HCI socket layer initialized
+[    2.332127@0] Bluetooth: L2CAP socket layer initialized
+[    2.332431@0] Bluetooth: SCO socket layer initialized
+[    2.343301@0] clocksource: Switched to clocksource arch_sys_counter
+[    2.644466@0] VFS: Disk quotas dquot_6.6.0
+[    2.644671@0] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    2.717563@0] dtv_dmd:[amldtvdemod..]aml_dtvdemod_init.
+[    2.718274@0] NET: Registered protocol family 2
+[    2.720370@0] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    2.720591@0] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    2.720810@0] TCP: Hash tables configured (established 8192 bind 8192)
+[    2.721014@0] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    2.721124@0] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    2.721637@0] NET: Registered protocol family 1
+[    2.721801@0] PCI: CLS 0 bytes, default 64
+[    2.725929@0] Unpacking initramfs...
+[    3.366277@0] Freeing initrd memory: 8800K
+[    3.368225@0] enable_pmuserenr_all() start
+[    3.368271@0] enable_pmuserenr_all() end
+[    3.368494@0] hw perfevents: enabled with armv7_cortex_a15 PMU driver, 7 counters available
+[    3.382755@0] audit: initializing netlink subsys (disabled)
+[    3.382961@0] audit: type=2000 audit(3.352:1): initialized
+[    3.394658@0] workingset: timestamp_bits=30 max_order=19 bucket_order=0
+[    3.452222@0] Registering sdcardfs 0.1
+[    3.453224@0] ntfs: driver 2.1.32 [Flags: R/O].
+[    3.455508@0] fuse init (API version 7.26)
+[    3.459733@0] SELinux:  Registering netfilter hooks
+[    3.480411@0] NET: Registered protocol family 38
+[    3.481306@0] bounce: pool size: 64 pages
+[    3.482437@0] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 246)
+[    3.482527@0] io scheduler noop registered (default)
+[    3.482727@0] io scheduler cfq registered
+[    3.592556@0] loop: module loaded
+[    3.600530@0] zram: Added device: zram0
+[    3.602261@0] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    3.606140@0] libphy: Fixed MDIO Bus: probed
+[    3.609123@0] tun: Universal TUN/TAP device driver, 1.6
+[    3.609174@0] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    3.612499@0] PPP generic driver version 2.4.2
+[    3.614112@0] PPP BSD Compression module registered
+[    3.614164@0] PPP Deflate Compression module registered
+[    3.614300@0] PPP MPPE Compression module registered
+[    3.614415@0] NET: Registered protocol family 24
+[    3.619570@0] usbcore: registered new interface driver usb-storage
+[    3.620336@0] usbcore: registered new interface driver usbserial
+[    3.622521@0] mousedev: PS/2 mouse device common for all mice
+[    3.623860@0] usbcore: registered new interface driver xpad
+[    3.624655@0] i2c /dev entries driver
+[    3.625700@0] usbcore: registered new interface driver uvcvideo
+[    3.625751@0] USB Video Class driver (1.1.1)
+[    3.629343@0] device-mapper: ioctl: 4.35.0-ioctl (2016-06-23) initialised: dm-devel@redhat.com
+[    3.634285@0] device-mapper: verity-avb: AVB error handler initialized with vbmeta device: 
+[    3.637231@0] hidraw: raw HID events driver (C) Jiri Kosina
+[    3.640488@0] usbcore: registered new interface driver usbhid
+[    3.640542@0] usbhid: USB HID core driver
+[    3.641306@0] ashmem: initialized
+[    3.646502@0] logger: created 512K log 'log_main'
+[    3.647363@0] logger: created 1K log 'log_events'
+[    3.648092@0] logger: created 1K log 'log_radio'
+[    3.648852@0] logger: created 16K log 'log_system'
+[    3.648904@0] exFAT: Version 1.3.0
+[    3.653545@0] ffd23000.serial: clock gate not found
+[    3.653683@0] meson_uart ffd23000.serial: ==uart0 reg addr = f0aa8000
+[    3.653861@0] ffd23000.serial: ttyS0 at MMIO 0xffd23000 (irq = 27, base_baud = 1500000) is a meson_uart
+[    3.654168@0] meson_uart ffd23000.serial: ttyS0 use xtal(24M) 24000000 change 0 to 115200
+[    3.655061@0] console [ttyS0] enabled
+[    3.655061@0] console [ttyS0] enabled
+[    3.655913@0] bootconsole [aml_uart0] disabled
+[    3.655913@0] bootconsole [aml_uart0] disabled
+[    3.666513@0] Error: Driver 'meson_reset' is already registered, aborting...
+[    3.668933@0] aml_dma ff63e000.aml_dma: Aml dma
+[    3.689322@0] ge2d: ge2d_init_module
+[    3.694136@0] amresource_mgr init success
+[    3.695771@0] [tsync_pcr_init]init success.
+[    3.700670@0] create_video_receiver video_render.0  ee3bf800, path_id:2 success
+[    3.700760@0] create_video_receiver video_render.1  eebde800, path_id:3 success
+[    3.701149@0] hdmitx: hdcp: hdmitx_hdcp_init
+[    3.701193@0] hdmitx: hdcp: exit for null device of hdmitx!
+[    3.703024@0] DI: di_module_init ok.
+[    3.704624@0] dim:dim_module_init
+[    3.705695@0] dim:dim_module_init finish
+[    3.705741@0] dil:dil_init.
+[    3.706221@0] dil:dil_init ok.
+[    3.706262@0] dimv3:dimv3_module_init
+[    3.707454@0] dimv3:dimv3_module_init finish
+[    3.707767@0] vdin_drv_init: major 238
+[    3.708522@0] vdin_drv_init: vdin driver init done
+[    3.708571@0] [viuin..]viuin_init_module viuin module init
+[    3.709931@0] [viuin..]viuin_probe probe ok.
+[    3.712905@0] [RX]-hdmirx: hdmirx_init.
+[    3.712953@0] ESM HLD: Initializing...
+[    3.716300@0] amvdec_csi module: init.
+[    3.716352@0] amvdec_csi_init_module:major 236
+[    3.717408@0] amvdec_csi module: init. ok
+[    3.718213@0] amlvid:info: amlvideo_init called[    3.718256@0] amlvid:info: amlvideo_create_instance called
+[    3.718362@0] amlvid:info: v4l2_dev.name=:amlvideo-000
+[    3.720109@0] amlvideo-000: V4L2 device registered as video10
+[    3.720161@0] amlvid:info: amlvideo_create_instance called
+[    3.720302@0] amlvid:info: v4l2_dev.name=:amlvideo-001
+[    3.721283@0] amlvideo-001: V4L2 device registered as video23
+[    3.721809@0] PPMGRDRV: warn: ppmgr module init func called
+[    3.726571@0] videosync_create_instance dev_s ee3c1200,dev_s->dev ee365980
+[    3.726642@0] videosync_create_instance reg videosync.0
+[    3.727835@0] vdetect_init
+[    3.729698@0] videosync_thread started
+[    3.730186@0] v4lvideo-000: V4L2 device registered as video30
+[    3.730895@0] v4lvideo-001: V4L2 device registered as video31
+[    3.732683@0] v4lvideo-002: V4L2 device registered as video32
+[    3.733630@0] v4lvideo-003: V4L2 device registered as video33
+[    3.734331@0] v4lvideo-004: V4L2 device registered as video34
+[    3.735636@0] v4lvideo-005: V4L2 device registered as video35
+[    3.736345@0] v4lvideo-006: V4L2 device registered as video36
+[    3.737441@0] v4lvideo-007: V4L2 device registered as video37
+[    3.738319@0] v4lvideo-008: V4L2 device registered as video38
+[    3.738373@0] video_composer_module_init_1
+[    3.739437@0] aml_vecm_init:module init
+[    3.740267@0] amdolby_vision_init:module init
+[    3.741315@0] prime_sl module init
+[    3.743003@0] vm_init .
+[    3.749443@0] meson-mmc: mmc driver version: 3.02, 2017-05-15: New Emmc Host Controller
+[    3.752556@0] meson-mmc: >>>>>>>>hostbase f0ae2000, dmode 
+[    3.753392@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.771258@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.793236@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.795194@0] meson-mmc: meson_mmc_probe() : success!
+[    3.795859@0] amlogic mtd driver init
+[    3.799346@0] unifykey: aml_unifykeys_init done!
+[    3.799860@0] audio_dsp: [dsp]register dsp to char divece(257)
+[    3.803056@0] amaudio: amaudio: driver amaudio init!
+[    3.806387@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.809150@0] amaudio: amaudio_init - amaudio: driver amaudio succuess!
+[    3.812246@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.815844@0] amlkaraoke init success!
+[    3.816709@0] sysled: module init
+[    3.819807@0] amlogic rfkill init
+[    3.824429@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.827694@0] page_trace_module_init, create sysfs failed
+[    3.849525@0] atv_demod: aml_atvdemod_init: OK, atv demod version: V2.23.
+[    3.854301@0] register clk_set_setting cpu[52]
+[    3.856244@0] Registered firmware driver success.
+[    3.859434@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x1000033c
+[    3.859575@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x10000354
+[    3.859920@0] meson-mmc: [meson_mmc_clk_set_rate_v3] after clock: 0x10000354
+[    3.860011@0] emmc: new high speed SDHC card at address aaaa
+[    3.860152@0] emmc: clock 50000000, 4-bit-bus-width
+ [    3.867559@0] mmcblk0: emmc:aaaa SS08G 7.40 GiB 
+[    3.869815@0]  mmcblk0: p1
+[    3.871761@0] meson-mmc: Enter aml_emmc_partition_ops
+[    3.871978@0] meson-mmc: Delete invalid mbr partition part ee3f0c00, part->partno 1
+[    3.873032@0] meson-mmc: magic error: 
+[    3.873076@0] meson-mmc: [mmc_read_partition_tbl]: partition verified error
+[    3.873209@0] meson-mmc: [mmc_read_partition_tbl] mmc read partition ERROR!
+[    3.876420@0] Try to load video/h264_enc.bin  ...
+[    3.876807@0] firmware_codec firmware_vdec: Direct firmware load for video/h264_enc.bin failed with error -2
+[    3.876963@0] Error : -2 can't load the video/h264_enc.bin.
+[    3.877115@0] get data from fsys fail.
+[    3.877225@0] invaild file type.
+[    3.878108@0] Try to load video/video_ucode.bin  ...
+[    3.896182@0] load firmware size : 2014464, Name : video/video_ucode.bin.
+[    3.936491@0] ammvdec_mpeg12 module init
+[    3.936778@0] ammvdec_h264 module init
+[    3.937017@0] amvdec_h265 module init
+[    3.937430@0] amvdec_h265 default mmu enabled.
+[    3.937488@0] amvdec_vp9 module init
+[    3.938582@0] Amlogic A/V streaming port init
+[    3.962002@0] get gate demux control ok ee353f00
+[    3.962127@0] get gate parser_top control ok ee2be4c0
+[    3.962410@0] get gate vdec control ok ee33c880
+[    3.962644@0] get gate clk_81 control ok ee33ce00
+[    3.962964@0] get gate clk_vdec_mux control ok ee33cd80
+[    3.963028@0] get gate clk_hcodec_mux control failed   (null)
+[    3.964308@0] get gate clk_hevc_mux control ok ee3c9400
+[    3.964371@0] get gate clk_hevcb_mux control failed   (null)
+[    3.964635@0] get gate ahbarb0 control ok ee3c93c0
+[    3.964692@0] get gate asyncfifo control failed   (null)
+[    3.967716@0] usbcore: registered new interface driver snd-usb-audio
+[    3.999852@0] Register vad
+[    4.001143@0] u32 classifier
+[    4.001184@0]     Actions configured
+[    4.001231@0] Netfilter messages via NETLINK v0.30.
+[    4.003079@0] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+[    4.004501@0] ctnetlink v0.93: registering with nfnetlink.
+[    4.007977@0] xt_time: kernel timezone is -0000
+[    4.008226@0] IPv4 over IPsec tunneling driver
+[    4.012288@0] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    4.013022@0] arp_tables: arp_tables: (C) 2002 David S. Miller
+[    4.013525@0] Initializing XFRM netlink socket
+[    4.017442@0] NET: Registered protocol family 10
+[    4.025540@0] mip6: Mobile IPv6
+[    4.025646@0] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    4.032921@0] NET: Registered protocol family 17
+[    4.033026@0] NET: Registered protocol family 15
+[    4.034727@0] Registering SWP/SWPB emulation handler
+[    4.034832@0] disable EAS feature
+[    4.038532@0] registered taskstats version 1
+lzq_0819 smc_fid = 82000093, x1 = 10,x2=0lzq_0819: aml_power_control, domian = 10, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 9,x2=0lzq_0819: aml_power_control, domian = 9, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 8,x2=0lzq_0819: aml_power_control, domian = 8, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 7,x2=0lzq_0819: aml_power_control, domian = 7, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 4,x2=0lzq_0819: aml_power_control, domian = 4, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 3,x2=0lzq_0819: aml_power_control, domian = 3, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 2,x2=0lzq_0819: aml_power_control, domian = 2, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 1,x2=0lzq_0819: aml_power_control, domian = 1, state= 0
+lzq_0819 smc_fid = 82000093, x1 = 0,x2=0lzq_0819: aml_power_control, domian = 0, state= 0
+[    4.089877@0] hctosys: unable to open rtc device (rtc0)
+[    4.097960@0] ALSA device list:
+[    4.098007@0]   No soundcards found.
+[    4.098532@0] meson_uart ffd23000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+[    4.102661@0] Freeing unused kernel memory: 1024K
+
+
+
+try to mount system a/b!
+mount: mounting /dev/cardblksd1 on /mnt failed: No such file or directory
+Failed to switch root, dropping to a shell
+[    5.013236@0] meson_uart ffd23000.serial: ttyS0 use xtal(24M) 24000000 change 115200 to 115200
+mount: mounting proc on /proc failed: Device or resource busy
+/etc/init.d/rcS: line 1: /usr/bin/dbus-launch: not found
+
+-/bin/sh: source: line 65: can't open '/etc/property_set.sh': No such file or directory
+# 
+# 
+# 
+# 
+# mount -t debugfs nondev /sys/kernel/debug;
+# echo 0xFF63C0C4  0xffffffff > /sys/kernel/debug/aml_reg/paddr
+[    5.830271@0] [__arm_ioremap_pfn_caller:L276]: offset=196, size=4, mtype = 0
+[    5.830373@0] [__arm_ioremap_pfn_caller:L287]: offset=196, size=4096, mtype = 0
+[    5.830572@0] [__arm_ioremap_pfn_caller:L316]: offset=196, size=4096, mtype = 0
+[    5.830772@0] [ioremap_pte_range:L66]: addr=-254963712, end=-254959616, prot= 1619
+[    5.830987@0] [ioremap_pte_range:L70]: addr=-254963712, end=-254959616, prot = 1619
+
+-/bin/sh: syntax error: unexpected word (expecting ")")
+-/bin/sh: syntax error: unexpected ")"
+# echo ff63c0c4 0xFFFFFFEF > /sys/kernel/debug/aml_reg/paddr
+[    6.185846@0] [__arm_ioremap_pfn_caller:L276]: offset=196, size=4, mtype = 0
+[    6.185940@0] [__arm_ioremap_pfn_caller:L287]: offset=196, size=4096, mtype = 0
+[    6.186141@0] [__arm_ioremap_pfn_caller:L316]: offset=196, size=4096, mtype = 0
+[    6.186342@0] [ioremap_pte_range:L66]: addr=-254955520, end=-254951424, prot= 1619
+[    6.186558@0] [ioremap_pte_range:L70]: addr=-254955520, end=-254951424, prot = 1619
+# 
+-/bin/sh: syntax error: unexpected word (expecting ")")
+-/bin/sh: syntax error: unexpected ")"
+# cat /sys/kernel/debug/aml_reg/paddr
+[    6.205651@0] [__arm_ioremap_pfn_caller:L276]: offset=196, size=4, mtype = 0
+[    6.205758@0] [__arm_ioremap_pfn_caller:L287]: offset=196, size=4096, mtype = 0
+[    6.205957@0] [__arm_ioremap_pfn_caller:L316]: offset=196, size=4096, mtype = 0
+[    6.206151@0] [ioremap_pte_range:L66]: addr=-254947328, end=-254943232, prot= 1619
+[    6.206366@0] [ioremap_pte_range:L70]: addr=-254947328, end=-254943232, prot = 1619
+[0xff63c0c4] = 0xFFFFFFEF
+[    6.206960@0] [__arm_ioremap_pfn_caller:L276]: offset=196, size=4, mtype = 0
+[    6.207046@0] [__arm_ioremap_pfn_caller:L287]: offset=196, size=4096, mtype = 0
+[    6.208564@0] [__arm_ioremap_pfn_caller:L316]: offset=196, size=4096, mtype = 0
+[    6.208662@0] [ioremap_pte_range:L66]: addr=-254939136, end=-254935040, prot= 1619
+[    6.208862@0] [ioremap_pte_range:L70]: addr=-254939136, end=-254935040, prot = 1619
+[    6.209405@0] [__arm_ioremap_pfn_caller:L276]: offset=196, size=4, mtype = 0
+[    6.209491@0] [__arm_ioremap_pfn_caller:L287]: offset=196, size=4096, mtype = 0
+[    6.209698@0] [__arm_ioremap_pfn_caller:L316]: offset=196, size=4096, mtype = 0
+[    6.209898@0] [ioremap_pte_range:L66]: addr=-254930944, end=-254926848, prot= 1619
+[    6.210114@0] [ioremap_pte_range:L70]: addr=-254930944, end=-254926848, prot = 1619
+# 
+# ^C
+# echo t5_clk81_top_demux > /sys/kernel/debug/clk_debug/clk
+[    6.523419@0] clk-debug: got clk via name
+[    6.523498@0] clk-debug: start to get rate
+[    6.523544@0] clk-debug: getting rate = 166666664
+# 
+# echo 1 > /sys/kernel/debug/clk_debug/enable
+
+[    6.534407@0] Unable to handle kernel paging request at virtual address f08060c4
+[    6.534415@0] pgd = c9b10000
+[    6.534441@0] [f08060c4] *pgd=2ea14811, *pte=00000000, *ppte=00000000
+[    6.534455@0] Internal error: Oops: 7 [#1] PREEMPT SMP ARM
+[    6.534469@0] Modules linked in:
+[    6.534482@0] CPU: 0 PID: 2361 Comm: sh Not tainted 4.9.113 #22
+[    6.534489@0] Hardware name: Generic DT based system
+[    6.534497@0] task: c99db800 task.st ack: bc08a000
+[    6.534516@0] PC is at clk_gate_endisable+0xe8/0x124
+[    6.534527@0] LR is at clk_gate_endisable+0xe4/0x124
+[    6.534540@0] pc : [<c05e5ffc>]    lr : [<c05e5ff8>]    psr: 600d0093
+[    6.534540@0] sp : bc08bbc8  ip : bc08bbc8  fp : bc08bc0c
+[    6.534548@0] r10: 600d0093  r9 : 00000000  r8 : 00000001
+[    6.534557@0] r7 : bc08bbdc  r6 : c05e6054  r5 : 00000000  r4 : c1692404
+[    6.534565@0] r3 : 00000000  r2 : c05e6054  r1 : 00000000  r0 : f08060c4
+[    6.534579@0] R7  : bc08bbdc, PFN:792c0
+[    6.534589@0] R11 : bc08bc0c, PFN:792c0
+[    6.534599@0] R12 : bc08bbc8, PFN:792c0
+[    6.534608@0] R13 : bc08bbc8, PFN:792c0
+[    6.534619@0] Flags: nZCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    6.534628@0] Control: 10c5383d  Table: 09b1006a  DAC: 00000051
+[    6.534637@0] 
+[    6.534637@0] PC: 0xc05e5f7c:
+[    6.534694@0] 5f7c  e594800c f57ff04e e3a03003 e58d7000 e1a02006 e1a01005 e1a00008 eb163474
+[    6.534750@0] 5f9c  e5885000 e3a03005 e1a00008 e58d7000 e1a02006 e3a01000 eb16346d e5940014
+[    6.534806@0] 5fbc  e3500000 0a000001 e1a0100a eb2233df e24bd028 e89daff0 e594300c e24b7030
+[    6.534862@0] 5fdc  e58d7000 e1a02006 e1a01005 e1a00003 e3a03002 e50b0038 eb16345d e51b0038
+[    6.534918@0] 5ffc  e5903000 e50b3038 e1a01005 e3a03004 e58d7000 e1a02006 eb163455 f57ff04f
+[    6.534975@0] 601c  e5d43010 e3a05001 e51b2038 e1590008 11825315 01c25315 eaffffd0 e1a0c00d
+[    6.535031@0] 603c  e92dd800 e24cb004 e52de004 ebf0b254 e3a01001 ebffffaf e3a00000 e89da800
+[    6.535087@0] 605c  e1a0c00d e92dd800 e24cb004 e52de004 ebf0b24b e3a01000 ebffffa6 e89da800
+[    6.535094@0] 
+[    6.535094@0] LR: 0xc05e5f78:
+[    6.535150@0] 5f78  11855312 e594800c f57ff04e e3a03003 e58d7000 e1a02006 e1a01005 e1a00008
+[    6.535207@0] 5f98  eb163474 e5885000 e3a03005 e1a00008 e58d7000 e1a02006 e3a01000 eb16346d
+[    6.535263@0] 5fb8  e5940014 e3500000 0a000001 e1a0100a eb2233df e24bd028 e89daff0 e594300c
+[    6.535319@0] 5fd8  e24b7030 e58d7000 e1a02006 e1a01005 e1a00003 e3a03002 e50b0038 eb16345d
+[    6.535375@0] 5ff8  e51b0038 e5903000 e50b3038 e1a01005 e3a03004 e58d7000 e1a02006 eb163455
+[    6.535431@0] 6018  f57ff04f e5d43010 e3a05001 e51b2038 e1590008 11825315 01c25315 eaffffd0
+[    6.535487@0] 6038  e1a0c00d e92dd800 e24cb004 e52de004 ebf0b254 e3a01001 ebffffaf e3a00000
+[    6.535544@0] 6058  e89da800 e1a0c00d e92dd800 e24cb004 e52de004 ebf0b24b e3a01000 ebffffa6
+[    6.535555@0] 
+[    6.535555@0] R2: 0xc05e5fd4:
+[    6.535611@0] 5fd4  e594300c e24b7030 e58d7000 e1a02006 e1a01005 e1a00003 e3a03002 e50b0038
+[    6.535667@0] 5ff4  eb16345d e51b0038 e5903000 e50b3038 e1a01005 e3a03004 e58d7000 e1a02006
+[    6.535723@0] 6014  eb163455 f57ff04f e5d43010 e3a05001 e51b2038 e1590008 11825315 01c25315
+[    6.535779@0] 6034  eaffffd0 e1a0c00d e92dd800 e24cb004 e52de004 ebf0b254 e3a01001 ebffffaf
+[    6.535835@0] 6054  e3a00000 e89da800 e1a0c00d e92dd800 e24cb004 e52de004 ebf0b24b e3a01000
+[    6.535892@0] 6074  ebffffa6 e89da800 e1a0c00d e92dd9f0 e24cb004 e24dd014 e52de004 ebf0b242
+[    6.535948@0] 6094  e590500c e24b8028 e1a04000 e1a0200e e58d8000 e3a03002 e3a01000 e1a00005
+[    6.536004@0] 60b4  e1a0700e eb16342c e5956000 e3a03004 e58d8000 e1a02007 e1a00005 e3a01000
+[    6.536011@0] 
+[    6.536011@0] R4: 0xc1692384:
+[    6.536067@0] 2384  00000010 c180653c c11eeb24 c0ea6b38 c16923a0 00000001 00000008 c11ee800
+[    6.536123@0] 23a4  eea18280 eea178c0 c16923bc f08060c4 0000000b c180653c c11eeb34 c0ea6b38
+[    6.536178@0] 23c4  c16923d0 00000001 00000008 c11ee800 eea18200 eea17800 c16923ec f08060c4
+[    6.536234@0] 23e4  00000005 c180653c c11eeb44 c0ea6b38 c1692400 00000001 00000008 c11ee800
+[    6.536290@0] 2404  eea18180 eea17740 c169241c f08060c4 00000004 c180653c c11eeb58 c0ea6b38
+[    6.536345@0] 2424  c1692430 00000001 00000008 c11ee800 eea18100 eea17680 c169244c f08060c4
+[    6.536400@0] 2444  00000003 c180653c c11eeb6c c0ea6b38 c1692460 00000001 00000008 c11ee800
+[    6.536456@0] 2464  eea18080 eea175c0 c169247c f08060c4 00000000 c180653c c11eeb7c c0ea6b38
+[    6.536464@0] 
+[    6.536464@0] R6: 0xc05e5fd4:
+[    6.536520@0] 5fd4  e594300c e24b7030 e58d7000 e1a02006 e1a01005 e1a00003 e3a03002 e50b0038
+[    6.536575@0] 5ff4  eb16345d e51b0038 e5903000 e50b3038 e1a01005 e3a03004 e58d7000 e1a02006
+[    6.536631@0] 6014  eb163455 f57ff04f e5d43010 e3a05001 e51b2038 e1590008 11825315 01c25315
+[    6.536688@0] 6034  eaffffd0 e1a0c00d e92dd800 e24cb004 e52de004 ebf0b254 e3a01001 ebffffaf
+[    6.536744@0] 6054  e3a00000 e89da800 e1a0c00d e92dd800 e24cb004 e52de004 ebf0b24b e3a01000
+[    6.536800@0] 6074  ebffffa6 e89da800 e1a0c00d e92dd9f0 e24cb004 e24dd014 e52de004 ebf0b242
+[    6.536856@0] 6094  e590500c e24b8028 e1a04000 e1a0200e e58d8000 e3a03002 e3a01000 e1a00005
+[    6.536912@0] 60b4  e1a0700e eb16342c e5956000 e3a03004 e58d8000 e1a02007 e1a00005 e3a01000
+[    6.536922@0] Process sh (pid: 2361, stack limit = 0xbc08a000)
+[    6.536930@0] Stack: (0xbc08bbc8 to 0xbc08c000)
+[    6.536947@0] bbc0:                   bc08bbdc 00000000 00000002 f08060c4 00000000 00000051
+[    6.536965@0] bbe0: 00000002 eea18180 00000000 00000051 00000002 bc08bd60 c0edb51c 00000000
+[    6.536984@0] bc00: bc08bc1c bc08bc10 c05e6054 c05e5f20 bc08bc3c bc08bc20 c05e1714 c05e6044
+[    6.537002@0] bc20: eea18180 600d0013 00000051 00000002 bc08bc54 bc08bc40 c05e1a68 c05e16ac
+[    6.537021@0] bc40: 00000002 eea17740 bc08bc64 bc08bc58 c05e1aa0 c05e1a4c bc08bc8c bc08bc68
+[    6.537039@0] bc60: c085506c c05e1a88 000a3134 00000001 c9aaa780 c0854f64 c9aaa780 01186b98
+[    6.537058@0] bc80: bc08bcbc bc08bc90 c04eef18 c0854f70 bc08bd60 00000000 c9aaa780 c04eeebc
+[    6.537076@0] bca0: bc08bd60 00000002 00000000 00000002 bc08bd2c bc08bcc0 c0395074 c04eeec8
+[    6.537094@0] bcc0: bc08bd60 00000000 eeb885a0 eeb885a0 bc08bd60 00000000 bc08bd0c bc08bce8
+[    6.537112@0] bce0: c0212a14 c0212a54 00000001 2d9fd000 00000001 00000000 c0257458 c0398b5c
+[    6.537131@0] bd00: bc08bd2c bc08bd10 00000002 c9aaa780 01186b98 bc08bd60 00000000 00000002
+[    6.537149@0] bd20: bc08bd5c bc08bd30 c039600c c0395044 c03b7320 c03b7e9c c9aaa780 c9aaa780
+[    6.537167@0] bd40: 00000000 00000000 01186b98 00000002 bc08bd8c bc08bd60 c03971f8 c0395f60
+[    6.537185@0] bd60: 00000000 00000000 00000000 00000001 01186b98 00000004 c0208884 bc08bde8
+[    6.537203@0] bd80: 00000000 bc08bd90 c0208680 c03971b8 00000000 00000001 00000001 01186b98
+[    6.537220@0] bda0: 00000002 00000000 00000000 00000001 01186b98 00000004 000ceddc 00000020
+[    6.537238@0] bdc0: 0009a13c 011852c8 00000000 bbdc3894 0001ae3c b3e28056 200d0030 00000001
+[    6.537255@0] bde0: 00000000 00000000 00000000 00000002 00000000 c99db800 00000000 00000000
+[    6.537274@0] be00: eef84080 c99d8800 c9aa08c0 c9aa0380 c99db800 eef84080 ffffe000 bc08b8bc
+[    6.537292@0] be20: bc08b850 c0e6da8c 00000000 00000000 00000000 00000000 00000000 01010000
+[    6.537308@0] be40: 00000000 b3f024d0 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537325@0] be60: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537341@0] be80: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537358@0] bea0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537375@0] bec0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537393@0] bee0: 01187848 011877b8 00000003 b3deca49 b3e88d58 00000002 01186b98 0000005b
+[    6.537412@0] bf00: 000cee0c 011877ba b3debd89 000cee0c 00000002 00000050 000904dc 01187848
+[    6.537428@0] bf20: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537445@0] bf40: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537462@0] bf60: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537478@0] bf80: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537495@0] bfa0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537511@0] bfc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    6.537529@0] bfe0: 40000700 00000000 c173c054 c0203094 00000000 00000000 00000000 00000000
+[    6.537553@0] [bc08bc1c+  16][<c05e6054>] clk_gate_enable+0x1c/0x24
+[    6.537571@0] [bc08bc3c+  32][<c05e1714>] clk_core_enable+0x74/0x258
+[    6.537589@0] [bc08bc54+  24][<c05e1a68>] clk_core_enable_lock+0x28/0x3c
+[    6.537606@0] [bc08bc64+  16][<c05e1aa0>] clk_enable+0x24/0x28
+[    6.537625@0] [bc08bc8c+  40][<c085506c>] enable_write+0x108/0x140
+[    6.537647@0] [bc08bcbc+  48][<c04eef18>] full_proxy_write+0x5c/0x7c
+[    6.537669@0] [bc08bd2c+ 112][<c0395074>] __vfs_write+0x3c/0x128
+[    6.537689@0] [bc08bd5c+  48][<c039600c>] vfs_write+0xb8/0x1d8
+[    6.537708@0] [bc08bd8c+  48][<c03971f8>] SyS_write+0x4c/0xa0
+[    6.537728@0] [00000000+   0][<c0208680>] ret_fast_syscall+0x0/0x48
+[    6.537748@0] Code: e3a03002 e50b0038 eb16345d e51b0038 (e5903000) 
+[    6.537760@0] ---[ end trace 1904f1b9246feec0 ]---
+[    6.562121@0] note: sh[2361] exited with preempt_count 2
+
+
+
+patch:
+
+Author: Jian Hu <jian.hu@amlogic.com>
+Date:   Thu Sep 3 14:28:27 2020 +0800
+
+    clk: t5: fix clk crash [1/1]
+    
+    PD#SWPL-32714
+    
+    Problem:
+    Unable to handle kernel paging request at virtual address f08060c4
+    pgd = c9b10000
+    [f08060c4] *pgd=2ea14811, *pte=00000000, *ppte=00000000
+    Internal error: Oops: 7 [#1] PREEMPT SMP ARM
+    Modules linked in:
+    CPU: 0 PID: 2361 Comm: sh Not tainted 4.9.113 #22
+    Hardware name: Generic DT based system
+    task: c99db800 task.stack: bc08a000
+    PC is at clk_gate_endisable+0xe8/0x124
+    LR is at clk_gate_endisable+0xe4/0x124
+    
+    Solution:
+    add return to avoid iounmap clk memory
+    
+    Verify:
+    verified on t5 pxp
+    
+    Change-Id: Ib11580df11bc54051fa2307813627df72504001f
+    Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+
+diff --git a/drivers/amlogic/clk/t5/t5.c b/drivers/amlogic/clk/t5/t5.c
+index f81e103493b9..15ce81483812 100644
+--- a/drivers/amlogic/clk/t5/t5.c
++++ b/drivers/amlogic/clk/t5/t5.c
+@@ -562,12 +562,6 @@ static struct meson_clk_mpll *const t5_clk_mplls[] = {
+        &t5_mpll3,
+ };
+ 
+-static struct clk_mux *t5_clk_muxs[] = {
+-};
+-
+-static struct clk_divider *t5_clk_divs[] = {
+-};
+-
+ static struct clk_gate *t5_clk_gates[] = {
+        &t5_clk81_ddr,
+        &t5_clk81_dos,
+@@ -707,16 +701,6 @@ static void __init t5_clkc_init(struct device_node *np)
+                t5_clk_gates[i]->reg = basic_clk +
+                        (unsigned long)t5_clk_gates[i]->reg;
+ 
+-       /* Populate base address for dividers  */
+-       for (i = 0; i < ARRAY_SIZE(t5_clk_divs); i++)
+-               t5_clk_divs[i]->reg = basic_clk +
+-                       (unsigned long)t5_clk_divs[i]->reg;
+-
+-       /* Populate base address for muxs  */
+-       for (i = 0; i < ARRAY_SIZE(t5_clk_muxs); i++)
+-               t5_clk_muxs[i]->reg = basic_clk +
+-                       (unsigned long)t5_clk_muxs[i]->reg;
+-
+        clks = kcalloc(NR_CLKS, sizeof(struct clk *), GFP_KERNEL);
+ 
+        clk_numbers = NR_CLKS;
+@@ -765,6 +749,7 @@ static void __init t5_clkc_init(struct device_node *np)
+        if (ret < 0)
+                pr_err("%s fail ret: %d\n", __func__, ret);
+ 
++       return;
+ iounmap:
+        iounmap(basic_clk);
+ }
